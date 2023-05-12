@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+<script defer src="runtimebundle.js"></script><script defer src="indexbundle.js"></script></head>
+
+<body>
+
+    <div class="main_container">
+
+        <div class="title_container">
+            <div class="title">
+                <h5 class="margin0"> Today's To Do </h5>
+            </div>
+            <div class="refresh">
+                <img class="imgw40 ref" src="" alt="">
+            </div>
+        </div>
+
+        <div class="add_container">
+            <input type="text" placeholder="Add to your list">
+            <div class="dotHorizontal">
+                <img class="imgw40 dth" src="/src/images/dotHorizontal.png" alt="">
+            </div>
+        </div>
+        
+        <ul class="margin0" id="todoList_container">
+
+        </ul>
+
+        <div class="bottom">
+            <button>
+                Clear all completed
+            </button>
+        </div>
+
+    </div>
+
+
+    <script src="/dist/indexbundle.js"></script>
+</body>
+
+</html>
