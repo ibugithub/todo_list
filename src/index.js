@@ -42,9 +42,9 @@ taskData.forEach((data) => {
   const tdBoxImg = document.createElement('img');
   tdBoxImg.classList.add('boxImg');
   tdBoxImg.src = checkBox;
-  const tdLiContent = document.createElement('div');
+  const tdLiContent = document.createElement('input');
   tdLiContent.classList.add('tdLi_content');
-  tdLiContent.textContent = data.taskDescription;
+  tdLiContent.value = data.taskDescription;
   const tdLeft = document.createElement('div');
   tdLeft.classList.add('tdLeft');
   const tdLiOption = document.createElement('div');

@@ -96,6 +96,10 @@ body {
 .tdLi_content {
   padding-left: 10px;
   opacity: 0.8;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
 }
 
 .bottom button {
