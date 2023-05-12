@@ -28,7 +28,7 @@
 
 
 # Todo List  <a name="about-project"></a>
-**Todo List** is a project for Microverse bootcamp to implement all the learned topics about Esy syntax and ES6 modules. It is a Book listing Web Application.
+**Todo List** is a project for Microverse bootcamp to implement all the learned topics about Esy syntax and ES6 modules. It is a To Do Web Application.
 
 ## 🛠 Built With <a name="built-with"></a>
 ### Tech Stack <a name="tech-stack"></a>
@@ -50,7 +50,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- [Live Demo Link](https://ibugithub.github.io/AwesomeBooks_withEs6/)
+- [Live Demo Link](https://ibugithub.github.io/todo_list/)
 
 
 ## 💻 Getting Started <a name="getting-started"></a>
