@@ -14,6 +14,22 @@ class AddRemoveTaskClass {
       };
       tasks.push(task);
       localStorage.setItem('tasks', JSON.stringify(tasks));
+      event.target.value = '';
+    };
+
+    addTaskEnterIcon = (event) => {
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      const inputvalue = event.target.closest('.add_container').querySelector('#inputElement').value;
+      if (inputvalue !== '') {
+        const task = {
+          description: inputvalue,
+          index: tasks.length + 1,
+          isCompleted: false,
+        };
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }
+      event.target.closest('.add_container').querySelector('#inputElement').value = '';
     };
 
     reArrangeIndex = (taskLists) => {
