@@ -1,94 +1,110 @@
 import './style.css';
+import crud from './crud.js';
+import todoStructure from './todoStructure.js';
 import check from './images/check.png';
 import checkBox from './images/checkBox.png';
 import dotVertical from './images/dotVertical.png';
-import enter from './images/enter.png';
-import refresh from './images/refresh.svg';
 import bin from './images/bin.png';
-
-const todoListContainer = document.querySelector('#todoList_container');
-
 // creating the Array of object for the toDoList
-const taskData = [
 
-  {
-    taskDescription: 'Wash dishes',
-    taskIndex: 1,
-    isCompleted: true,
-  },
-
-  {
-    taskDescription: 'Reading reac doc',
-    taskIndex: 2,
-    isCompleted: true,
-  },
-
-  {
-    taskDescription: 'Complete toDo List project',
-    taskIndex: 3,
-    isCompleted: true,
-  },
-
-];
-
-// Creating the toDoList's structure
-document.querySelector('.ref').src = refresh;
-document.querySelector('.dth').src = enter;
-taskData.forEach((data) => {
-  const tdulLi = document.createElement('li');
-  tdulLi.classList.add('lsNone', 'tasks');
-  const tdulLiBox = document.createElement('div');
-  tdulLiBox.classList.add('box');
-  const tdBoxImg = document.createElement('img');
-  tdBoxImg.classList.add('boxImg');
-  tdBoxImg.src = checkBox;
-  const tdLiContent = document.createElement('input');
-  tdLiContent.classList.add('tdLi_content');
-  tdLiContent.value = data.taskDescription;
-  const tdLeft = document.createElement('div');
-  tdLeft.classList.add('tdLeft');
-  const tdLiOption = document.createElement('div');
-  tdLiOption.classList.add('tdLi_option');
-  const tdOptionImg = document.createElement('img');
-  tdOptionImg.classList.add('imgw40');
-  tdOptionImg.src = dotVertical;
-
-  todoListContainer.appendChild(tdulLi);
-  tdulLi.appendChild(tdLeft);
-  tdLeft.appendChild(tdulLiBox);
-  tdLeft.appendChild(tdLiContent);
-  tdulLi.appendChild(tdLiOption);
-  tdulLiBox.appendChild(tdBoxImg);
-  tdulLi.appendChild(tdLiOption);
-  tdLiOption.appendChild(tdOptionImg);
-});
-
-document.querySelector('#todoList_container').addEventListener('click', (event) => {
-  const clickedTask = event.target.closest('.tdLeft');
-  const clickedBox = event.target.closest('.boxImg');
-  const binImg = event.target.closest('.tasks').querySelector('.imgw40');
-
-  if (clickedTask) {
-    const optionContainer = event.target.closest('.tasks').querySelector('.tdLi_option');
-    document.querySelectorAll('.tasks').forEach((task) => {
-      task.classList.remove('yellowBg');
-      const binImg2 = task.querySelector('.tdLi_option').querySelector('.imgw40');
-      binImg2.src = dotVertical;
-      binImg2.classList.remove('binImg');
-      task.querySelector('.tdLi_option').classList.remove('padding_right10');
-    });
-    event.target.closest('.tasks').classList.add('yellowBg');
-    binImg.src = bin;
-    binImg.classList.add('binImg');
-    optionContainer.classList.add('padding_right10');
-  }
-
-  if (clickedBox) {
-    binImg.src = dotVertical;
-    if (clickedBox.src.includes('checkBox')) {
-      clickedBox.src = check;
-    } else {
-      clickedBox.src = checkBox;
+class EventHandlarClass {
+    showBinIconAndYellowBg = (event) => {
+      const optionContainer = event.target.closest('.tasks').querySelector('.tdLi_option');
+      const binImg = event.target.closest('.tasks').querySelector('.imgw40');
+      document.querySelectorAll('.tasks').forEach((task) => {
+        task.classList.remove('yellowBg');
+        const binImg2 = task.querySelector('.tdLi_option').querySelector('.imgw40');
+        binImg2.src = dotVertical;
+        binImg2.classList.remove('binImg');
+        task.querySelector('.tdLi_option').classList.remove('padding_right10');
+      });
+      event.target.closest('.tasks').classList.add('yellowBg');
+      binImg.src = bin;
+      binImg.classList.add('binImg');
+      optionContainer.classList.add('padding_right10');
+      this.handleRemoveClick();
     }
-  }
-});
+
+    toggleCheckAndBoxIcon = (event) => {
+      const binIcon = event.target.closest('.tasks').querySelector('.imgw40');
+      const optionContainer = event.target.closest('.tasks').querySelector('.tdLi_option');
+      if (event.target.src.includes('checkBox')) {
+        event.target.src = check;
+      } else {
+        event.target.src = checkBox;
+      }
+      binIcon.src = dotVertical;
+      binIcon.classList.add('binImg');
+      optionContainer.classList.add('padding_right10');
+    }
+
+    sendToAdd = (event) => {
+      crud.handleInputAndEnter(event);
+      this.reset();
+    }
+
+    sendToRemove = (event) => {
+      crud.removeTask(event);
+      this.reset();
+    }
+
+    sendToEdit = (event) => {
+      crud.editTask(event);
+    }
+
+    reset = () => {
+      todoStructure.generateTodoStructure();
+      this.handleTaskList();
+      this.handleCheckClick();
+    }
+
+    spinRefreshIcon = (event) => {
+      event.target.classList.add('spin');
+      setTimeout(() => {
+        event.target.classList.remove('spin');
+      }, 2000);
+    }
+
+    // Handling the the click in task
+    handleTaskList = () => {
+      const taskLists = document.querySelectorAll('.tdLi_content');
+      taskLists.forEach((task) => {
+        task.addEventListener('click', this.showBinIconAndYellowBg);
+        task.addEventListener('input', this.sendToEdit);
+      });
+    };
+
+    // Handling the check button click
+    handleCheckClick = () => {
+      const checkBoxs = document.querySelectorAll('.boxImg');
+      checkBoxs.forEach((checkbox) => {
+        checkbox.addEventListener('click', this.toggleCheckAndBoxIcon);
+      });
+    };
+
+    // handling the bin icon click
+    handleRemoveClick = () => {
+      const removeElement = document.querySelectorAll('.binImg');
+      removeElement.forEach((binIcon) => {
+        binIcon.addEventListener('click', this.sendToRemove);
+      });
+    };
+
+    // handling the input of add task input
+    handleAddInputElement = () => {
+      const inputElement = document.querySelector('#inputElement');
+      inputElement.addEventListener('keypress', this.sendToAdd);
+    }
+
+    // Handling the refresh interaction
+    handleRefressIcon = () => {
+      document.querySelector('.ref').addEventListener('click', this.spinRefreshIcon);
+    }
+}
+
+todoStructure.generateTodoStructure();
+const eventHandler = new EventHandlarClass();
+eventHandler.handleTaskList();
+eventHandler.handleCheckClick();
+eventHandler.handleAddInputElement();
+eventHandler.handleRefressIcon();

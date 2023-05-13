@@ -51,13 +51,13 @@ body {
 }
 
 .tdLeft {
-  width: 96%;
+  width: 97%;
   display: flex;
   align-items: center;
 }
 
 .tdLi_option {
-  width: 4%;
+  width: 3%;
 }
 
 #todoList_container li:last-child {
@@ -100,6 +100,7 @@ body {
   outline: none;
   background: transparent;
   width: 100%;
+  line-height: 40px;
 }
 
 .bottom button {
@@ -131,4 +132,22 @@ body {
 
 .padding_right10 {
   padding-right: 10px;
+}
+
+@keyframes spining {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ref {
+  transition: 0.3s ease-in-out;
+}
+
+.spin {
+  animation: spining 1s infinite linear;
 }
