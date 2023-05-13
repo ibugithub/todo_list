@@ -133,3 +133,21 @@ body {
 .padding_right10 {
   padding-right: 10px;
 }
+
+@keyframes spining {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ref {
+  transition: 0.3s ease-in-out;
+}
+
+.spin {
+  animation: spining 1s infinite linear;
+}

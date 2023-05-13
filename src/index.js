@@ -58,6 +58,14 @@ class EventHandlarClass {
       this.handleCheckClick();
     }
 
+    spinRefreshIcon = (event) => {
+      event.target.classList.add('spin');
+      setTimeout(() => {
+        event.target.classList.remove('spin');
+      }, 2000);
+    }
+
+    // Handling the the click in task
     handleTaskList = () => {
       const taskLists = document.querySelectorAll('.tdLi_content');
       taskLists.forEach((task) => {
@@ -66,6 +74,7 @@ class EventHandlarClass {
       });
     };
 
+    // Handling the check button click
     handleCheckClick = () => {
       const checkBoxs = document.querySelectorAll('.boxImg');
       checkBoxs.forEach((checkbox) => {
@@ -73,6 +82,7 @@ class EventHandlarClass {
       });
     };
 
+    // handling the bin icon click
     handleRemoveClick = () => {
       const removeElement = document.querySelectorAll('.binImg');
       removeElement.forEach((binIcon) => {
@@ -80,9 +90,15 @@ class EventHandlarClass {
       });
     };
 
+    // handling the input of add task input
     handleAddInputElement = () => {
       const inputElement = document.querySelector('#inputElement');
       inputElement.addEventListener('keypress', this.sendToAdd);
+    }
+
+    // Handling the refresh interaction
+    handleRefressIcon = () => {
+      document.querySelector('.ref').addEventListener('click', this.spinRefreshIcon);
     }
 }
 
@@ -91,3 +107,4 @@ const eventHandler = new EventHandlarClass();
 eventHandler.handleTaskList();
 eventHandler.handleCheckClick();
 eventHandler.handleAddInputElement();
+eventHandler.handleRefressIcon();
