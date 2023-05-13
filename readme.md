@@ -37,6 +37,7 @@
   <ul>
     <li><a href="https://reactjs.org/">HTML</a></li>
     <li><a href="https://reactjs.org/">CSS</a></li>
+        <li><a href="https://reactjs.org/">JavaScript</a></li>
   </ul>
 </details>
 
@@ -105,8 +106,10 @@ You can deploy this project using:
 
 
 ## 🔭 Future Features <a name="future-features"></a>
-- [ ] **[Responsive Home Page]**
-- [ ] **[Responsive About Page]**
+- [ ] **[Beautiful todo Structure]**
+- [ ] **[Fully functional CRUD functionality]**
+- [ ] **[Interactive list]**
+- [ ] **[Check with clear completed task]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

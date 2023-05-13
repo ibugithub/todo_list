@@ -26,6 +26,7 @@ class GenerateTodoStructureClass {
         tdLiContent.classList.add('tdLi_content');
         tdLiContent.value = data.description;
         tdLiContent.setAttribute('index', data.index);
+        tdLiContent.setAttribute('isCompleted', data.isCompleted);
         const tdLeft = document.createElement('div');
         tdLeft.classList.add('tdLeft');
         const tdLiOption = document.createElement('div');

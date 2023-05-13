@@ -5,7 +5,7 @@ import check from './images/check.png';
 import checkBox from './images/checkBox.png';
 import dotVertical from './images/dotVertical.png';
 import bin from './images/bin.png';
-// creating the Array of object for the toDoList
+import changeTaskStatus from './changeTaskStatus.js';
 
 class EventHandlarClass {
     showBinIconAndYellowBg = (event) => {
@@ -30,8 +30,10 @@ class EventHandlarClass {
       const optionContainer = event.target.closest('.tasks').querySelector('.tdLi_option');
       if (event.target.src.includes('checkBox')) {
         event.target.src = check;
+        changeTaskStatus.changeAsCompleted(event);
       } else {
         event.target.src = checkBox;
+        changeTaskStatus.changeAsNotCompleted(event);
       }
       binIcon.src = dotVertical;
       binIcon.classList.add('binImg');
@@ -50,6 +52,12 @@ class EventHandlarClass {
 
     sendToEdit = (event) => {
       crud.editTask(event);
+    }
+
+    sendToClear = () => {
+      changeTaskStatus.clearSelectedTask();
+      this.reset();
+      this.handleClearSelectedButton();
     }
 
     reset = () => {
@@ -100,6 +108,16 @@ class EventHandlarClass {
     handleRefressIcon = () => {
       document.querySelector('.ref').addEventListener('click', this.spinRefreshIcon);
     }
+
+    // Handling clear selected button
+    handleClearSelectedButton = () => {
+      document.querySelector('#clear_selected').addEventListener('click', this.sendToClear);
+    }
+
+    // Handling If a task selected or unselected after refreshing the window
+    handlingSelectedonRef = () => {
+      window.addEventListener('load', () => { changeTaskStatus.checkIfSelected(); });
+    }
 }
 
 todoStructure.generateTodoStructure();
@@ -108,3 +126,5 @@ eventHandler.handleTaskList();
 eventHandler.handleCheckClick();
 eventHandler.handleAddInputElement();
 eventHandler.handleRefressIcon();
+eventHandler.handleClearSelectedButton();
+eventHandler.handlingSelectedonRef();
