@@ -23,9 +23,18 @@ class ChangeTaskStatusClass {
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
+    reArrangeIndex = (taskLists) => {
+      let count = 1;
+      taskLists.forEach((task) => {
+        task.index = count;
+        count += 1;
+      });
+    }
+
     clearSelectedTask = () => {
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
       const updatedTask = tasks.filter((task) => !task.isCompleted);
+      this.reArrangeIndex(updatedTask);
       localStorage.setItem('tasks', JSON.stringify(updatedTask));
     }
 

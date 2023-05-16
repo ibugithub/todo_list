@@ -38,14 +38,13 @@ class AddRemoveTaskClass {
         task.index = count;
         count += 1;
       });
-      return taskLists;
     }
 
     removeTask = (event) => {
       const index = event.target.closest('.tasks').querySelector('.tdLi_content').getAttribute('index');
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-      let updatedTaskList = tasks.filter((task) => task.index !== parseInt(index, 10));
-      updatedTaskList = this.reArrangeIndex(updatedTaskList);
+      const updatedTaskList = tasks.filter((task) => task.index !== parseInt(index, 10));
+      this.reArrangeIndex(updatedTaskList);
       localStorage.setItem('tasks', JSON.stringify(updatedTaskList));
     }
 
