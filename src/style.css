@@ -151,3 +151,7 @@ body {
 .spin {
   animation: spining 1s infinite linear;
 }
+
+#clear_selected {
+  cursor: pointer;
+}
