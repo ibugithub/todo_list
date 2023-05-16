@@ -51,7 +51,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- [Live Demo Link](https://ibugithub.github.io/todo_list/dist)
+- [Live Demo Link](https://ibugithub.github.io/todo_list/dist/)
 
 
 ## 💻 Getting Started <a name="getting-started"></a>
