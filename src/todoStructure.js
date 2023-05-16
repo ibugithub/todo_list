@@ -1,8 +1,5 @@
-
 // Creating the toDoList's structure
 class GenerateTodoStructureClass {
-
-
 
 }
 
