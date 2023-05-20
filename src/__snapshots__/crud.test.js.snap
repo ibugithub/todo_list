@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addTask function addTask should add one <li> element to the list 1`] = `" <li class="lsNone tasks"><div class="tdLeft"><div class="box"><img class="boxImg" src="http://localhost:8081/images/checkBox.png"></div><input class="tdLi_content" index="1" iscompleted="false"></div><div class="tdLi_option"><img class="imgw40" src="http://localhost:8081/images/dotVertical.png"></div></li> "`;
