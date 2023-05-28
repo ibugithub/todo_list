@@ -13,7 +13,7 @@ class AddRemoveTaskClass {
   };
 
   addTask = (event) => {
-    let inputvalue = event.target.closest('.add_container').querySelector('#inputElement').value;
+    const inputvalue = event.target.closest('.add_container').querySelector('#inputElement').value;
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const task = {
       description: inputvalue,
@@ -22,7 +22,7 @@ class AddRemoveTaskClass {
     };
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    inputvalue = '';
+    event.target.closest('.add_container').querySelector('#inputElement').value = '';
   };
 
   removeTask = (event) => {
