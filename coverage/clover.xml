@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684597620872" clover="3.2.0">
-  <project timestamp="1684597620873" name="All files">
+<coverage generated="1684601035911" clover="3.2.0">
+  <project timestamp="1684601035911" name="All files">
     <metrics statements="65" coveredstatements="50" conditionals="24" coveredconditionals="10" methods="19" coveredmethods="13" elements="108" coveredelements="73" complexity="0" loc="65" ncloc="65" packages="2" files="3" classes="3"/>
     <package name="src">
       <metrics statements="64" coveredstatements="49" conditionals="24" coveredconditionals="10" methods="19" coveredmethods="13"/>
-      <file name="changeTaskStatus.js" path="D:\All About Programing\microverse\WithinMicroverse\JavaScript and Networking\Week 2\day2\Todo_List\src\changeTaskStatus.js">
+      <file name="changeTaskStatus.js" path="C:\Users\Tomás\Documents\GitHub\todo_list\src\changeTaskStatus.js">
         <metrics statements="30" coveredstatements="20" conditionals="10" coveredconditionals="5" methods="10" coveredmethods="6"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -37,7 +37,7 @@
         <line num="45" count="0" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
       </file>
-      <file name="crud.js" path="D:\All About Programing\microverse\WithinMicroverse\JavaScript and Networking\Week 2\day2\Todo_List\src\crud.js">
+      <file name="crud.js" path="C:\Users\Tomás\Documents\GitHub\todo_list\src\crud.js">
         <metrics statements="34" coveredstatements="29" conditionals="14" coveredconditionals="5" methods="9" coveredmethods="7"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="0" type="cond" truecount="0" falsecount="4"/>
@@ -77,7 +77,7 @@
     </package>
     <package name="src.images">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="check.png" path="D:\All About Programing\microverse\WithinMicroverse\JavaScript and Networking\Week 2\day2\Todo_List\src\images\check.png">
+      <file name="check.png" path="C:\Users\Tomás\Documents\GitHub\todo_list\src\images\check.png">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
