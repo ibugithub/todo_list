@@ -17,7 +17,7 @@ class EventHandlarClass {
   //  ** This function will generate the todo list structure
     generateTodoStructure = () => {
       this.todoListContainer = document.querySelector('#todoList_container');
-      this.taskData = JSON.parse(localStorage.getItem('tasks')) || [];
+      this.taskData = JSON.parse(localStorage.getItem('tasks') || '[]');
       this.todoListContainer.textContent = '';
       this.taskData.forEach((data) => {
         const tdulLi = document.createElement('li');
