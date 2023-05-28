@@ -89,7 +89,7 @@ class EventHandlarClass {
     // * the crud module
     sendToAdd = (event) => {
       crud.handleInputAndEnter(event);
-      // this.reset();
+      this.reset();
     }
 
     // * this function will send adding request for the enter icon
